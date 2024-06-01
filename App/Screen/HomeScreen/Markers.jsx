@@ -11,8 +11,8 @@ export default function Markers({index, place }) {
 
     <Marker
       coordinate={{
-        latitude: place.location?.latitude,
-        longitude: place.location?.longitude
+        latitude: place.latitude,
+        longitude: place.longitude
       }}
 
       onPress={()=>setSelectedMarker(index)}

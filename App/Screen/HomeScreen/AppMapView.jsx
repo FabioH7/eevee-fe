@@ -12,7 +12,7 @@ const destination = {latitude: 37.771707, longitude: -122.4053769};
 export default function AppMapView({placeList}) {
 
   const {location,setLocation}=useContext(UserLocationContext);
-//  console.log("--- ",location);
+ console.log("--- ",location);
  
   return (
     <View>
@@ -32,7 +32,7 @@ export default function AppMapView({placeList}) {
          <Marker
             coordinate={{
               latitude:origin.latitude,
-          longitude:origin.longitude,
+              longitude:origin.longitude,
             }}
           >
             <Image source={require('./../../../assets/images/car-marker.png')} 

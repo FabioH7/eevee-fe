@@ -1,35 +1,47 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { View, Text, TextInput } from 'react-native';
+import React, { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../../Utils/Colors';
 
-export default function SearchBar({searchedLocation}) {
-    
+export default function SearchBar({ searchedLocation }) {
+  const [input, setInput] = useState('');
+
+  const handleInputChange = (text) => {
+    setInput(text);
+    // Call the searchedLocation function with the updated input
+    searchedLocation(text);
+  };
+
   return (
     <View style={{
-        display:'flex',
-        flexDirection:'row',
-        marginTop:15,
-        paddingHorizontal:5,
-        backgroundColor:Colors.WHITE,
-        borderRadius:6
+      display: 'flex',
+      flexDirection: 'row',
+      marginTop: 15,
+      paddingHorizontal: 5,
+      backgroundColor: Colors.WHITE,
+      borderRadius: 6,
+      alignItems: 'center'
     }}>
-        <Ionicons name="location-sharp" size={24} 
-        color={Colors.GRAY} style={{paddingTop:10}} />
-       <GooglePlacesAutocomplete
-        placeholder='Search EV Charging Station'
-        fetchDetails={true}
-        onPress={(data, details = null) => {
-            // 'details' is provided when fetchDetails = true
-          
-            searchedLocation(details?.geometry?.location)
+      <Ionicons
+        name="location-sharp"
+        size={24}
+        color={Colors.GRAY}
+        style={{ paddingTop: 10 }}
+      />
+      <TextInput
+        style={{
+          flex: 1,
+          marginLeft: 10,
+          height: 40,
+          borderColor: Colors.GRAY,
+          borderWidth: 1,
+          borderRadius: 6,
+          paddingHorizontal: 10
         }}
-      query={{
-        key: 'AIzaSyB9ctiAb-J9CZil_ZlpAg3ZOXpxwudHlNw',
-        language: 'en',
-      }}
-    />
+        placeholder="Search EV Charging Station"
+        value={input}
+        onChangeText={handleInputChange}
+      />
     </View>
-  )
+  );
 }

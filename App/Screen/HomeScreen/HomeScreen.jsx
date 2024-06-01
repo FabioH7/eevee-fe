@@ -21,23 +21,21 @@ export default function HomeScreen() {
   /**
    * Used to get Near by place using google place api
    */
-  const GetNearByPlace = () => {
-    const data = {
-      "includedTypes": ["electric_vehicle_charging_station"],
-      "maxResultCount": 10,
-      "locationRestriction": {
-        "circle": {
-          "center": {
-            "latitude": location?.latitude,
-            "longitude": location?.longitude
-          },
-          "radius": 5000.0
-        }
-      }
-    }
-    GlobalApi.NewNearByPlace(data).then(resp => {
-      setPlaceList(resp.data?.places);
-    })
+  const GetNearByPlace = (data) => {
+    // const data = {
+    //   "includedTypes": ["electric_vehicle_charging_station"],
+    //   "maxResultCount": 10,
+    //   "locationRestriction": {
+    //     "circle": {
+    //       "center": {
+    //         "latitude": location?.latitude,
+    //         "longitude": location?.longitude
+    //       },
+    //       "radius": 5000.0
+    //     }
+    //   }
+    // }
+    setPlaceList(GlobalApi.NewNearByPlace(data));
   }
 
   return (
@@ -46,11 +44,10 @@ export default function HomeScreen() {
       <View style={styles.headerContainer}>
         <Header />
         <SearchBar 
-        searchedLocation={(location) => 
-        setLocation({
-          latitude:location.lat,
-          longitude:location.lng
-        })} />
+          onSearch={GetNearByPlace}
+          searchedLocation={(location) => 
+          GetNearByPlace(location)} 
+          />
       </View>
       {!placeList?<ActivityIndicator size={'large'}/>
       : <AppMapView placeList={placeList}/>}

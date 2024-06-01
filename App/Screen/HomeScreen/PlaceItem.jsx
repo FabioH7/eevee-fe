@@ -43,8 +43,8 @@ export default function PlaceItem({ place, isFav, markedFav }) {
    */
   const onDirectionClick=()=>{
     const url=Platform.select({
-      ios:"maps:"+place.location.latitude+","+place?.location?.longitude+"?q="+place?.formattedAddress,
-      android:"geo:"+place.location.latitude+","+place?.location?.longitude+"?q="+place?.formattedAddress,
+      ios:"maps:"+place.latitude+","+place?.longitude,
+      android:"geo:"+place.latitude+","+place?.longitude,
     });
 
     Linking.openURL(url);
