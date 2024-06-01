@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "types": [
+      "node",
+      "react",
+      "react-native",
+      "bonjour",
+      "connect",
+      "eslint",
+      "estree",
+      "geojson",
+      "glob",
+      "http-errors",
+      "istanbul-lib-coverage",
+      "istanbul-lib-report",
+      "istanbul-reports",
+      "json-schema",
+      "ws",
+      "yargs",
+      "yargs-parser"
+    ],
+    "lib": ["es6", "dom"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"],
+}
