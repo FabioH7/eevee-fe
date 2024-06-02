@@ -19,7 +19,6 @@ const config={
 }
 
 const places = [
-    [
         {
             "id": 1,
             "url": "https://media.istockphoto.com/id/1470356035/photo/electric-car-battery-charging-station-on-a-city-street-a-modern-gas-station-with-electricity.jpg?s=612x612&w=0&k=20&c=qqkRp4bEx7N_y7EGacBm4jk3y-BGHbFtRvYjHfowtmw=",
@@ -52,6 +51,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "10",
+            "occupiedChargers": "5",
             "randomOption": "DC Fast Charging (DCFC)"
         },
         {
@@ -86,6 +87,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "10",
+            "occupiedChargers": "5",
             "randomOption": "Tesla Superchargers"
         },
         {
@@ -120,6 +123,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "7",
+            "occupiedChargers": "3",
             "randomOption": "Tesla Superchargers"
         },
         {
@@ -154,6 +159,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "5",
+            "occupiedChargers": "2",
             "randomOption": "Level 1 Charging"
         },
         {
@@ -188,6 +195,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "10",
+            "occupiedChargers": "5",
             "randomOption": "Wireless Charging"
         },
         {
@@ -222,6 +231,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "10",
+            "occupiedChargers": "8",
             "randomOption": "DC Fast Charging (DCFC)"
         },
         {
@@ -256,6 +267,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "6",
+            "occupiedChargers": "3",
             "randomOption": "Level 2 Charging"
         },
         {
@@ -290,6 +303,8 @@ const places = [
                     "power": "120 kW"
                 }
             ],
+            "totalChargers": "8",
+            "occupiedChargers": "4",
             "randomOption": "Solar Charging"
         },
         {
@@ -324,6 +339,8 @@ const places = [
                     "power": "120 kW"
                 }
             ],
+            "totalChargers": "10",
+            "occupiedChargers": "5",
             "randomOption": "Level 2 Charging"
         },
         {
@@ -358,8 +375,9 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "4",
+            "occupiedChargers": "0",
             "randomOption": "Level 1 Charging",
-            "occupied": true
         },
         {
             "id": 11,
@@ -393,6 +411,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "6",
+            "occupiedChargers": "3",
             "randomOption": "Tesla Superchargers"
         },
         {
@@ -427,6 +447,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "8",
+            "occupiedChargers": "6",
             "randomOption": "Wireless Charging"
         },
         {
@@ -461,6 +483,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "10",
+            "occupiedChargers": "5",
             "randomOption": "Solar Charging"
         },
         {
@@ -495,6 +519,8 @@ const places = [
                     "power": "120 kW"
                 }
             ],
+            "totalChargers": "10",
+            "occupiedChargers": "2",
             "randomOption": "Tesla Superchargers"
         },
         {
@@ -529,13 +555,16 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "3",
+            "occupiedChargers": "1",
             "randomOption": "Level 2 Charging"
         },
         {
             "id": 16,
             "url": "https://media.istockphoto.com/id/1470356035/photo/electric-car-battery-charging-station-on-a-city-street-a-modern-gas-station-with-electricity.jpg?s=612x612&w=0&k=20&c=qqkRp4bEx7N_y7EGacBm4jk3y-BGHbFtRvYjHfowtmw=",
             "code": 16,
-            "address": "Albania, St.1",        "name": "EV Charging Station 1",
+            "address": "Albania, St.1",        
+            "name": "EV Charging Station 1",
             "city": "Tirana",
             "country": "Albania",
             "latitude": 41.3275,
@@ -562,6 +591,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "4",
+            "occupiedChargers": "2",
             "randomOption": "DC Fast Charging (DCFC)"
         },
         {
@@ -596,6 +627,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "4",
+            "occupiedChargers": "2",
             "randomOption": "Wireless Charging"
         },
         {
@@ -630,6 +663,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "4",
+            "occupiedChargers": "2",
             "randomOption": "Solar Charging"
         },
         {
@@ -664,6 +699,8 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "4",
+            "occupiedChargers": "2",
             "randomOption": "Tesla Superchargers"
         },
         {
@@ -698,18 +735,14 @@ const places = [
                     "power": "Varies"
                 }
             ],
+            "totalChargers": "4",
+            "occupiedChargers": "2",
             "randomOption": "Wireless Charging"
         }
     ]
-    
-           
-    
-    
-    
-]
 
 
-const NewNearByPlace=(data)=> places.filter((item)=>item.city.includes(data));
+const NewNearByPlace= (data) => places.filter((item)=> item.city.includes(data) || item.address.includes(data) || item.name.includes(data));
 
 export default{
     NewNearByPlace,

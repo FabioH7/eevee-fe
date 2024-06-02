@@ -13,30 +13,18 @@ export default function HomeScreen() {
   const { location, setLocation } = useContext(UserLocationContext);
   const [placeList,setPlaceList]=useState([]);
   const [selectedMarker,setSelectedMarker]=useState(0);
+  
+  const GetNearByPlace = (data) => {
+    return GlobalApi.NewNearByPlace(data);
+  }
+
   useEffect(()=>{
-    setSelectedMarker(0)
-    location&&GetNearByPlace();
+    setPlaceList(GetNearByPlace(""));
   },[location])
 
   /**
    * Used to get Near by place using google place api
    */
-  const GetNearByPlace = (data) => {
-    // const data = {
-    //   "includedTypes": ["electric_vehicle_charging_station"],
-    //   "maxResultCount": 10,
-    //   "locationRestriction": {
-    //     "circle": {
-    //       "center": {
-    //         "latitude": location?.latitude,
-    //         "longitude": location?.longitude
-    //       },
-    //       "radius": 5000.0
-    //     }
-    //   }
-    // }
-    setPlaceList(GlobalApi.NewNearByPlace(data));
-  }
 
   return (
     <SelectMarkerContext.Provider value={{selectedMarker,setSelectedMarker}}>

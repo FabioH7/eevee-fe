@@ -5,7 +5,7 @@ import { useAuth, useUser } from '@clerk/clerk-expo'
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 export default function ProfileScreen() {
-  const {user}=useUser();
+  const {user} = useUser();
   const menu=[
     {
       id:1,
@@ -14,7 +14,7 @@ export default function ProfileScreen() {
     },
     {
       id:2,
-      name:'Other Projects',
+      name:'Maintanance',
       icon:'ios-file-tray-full-outline'
     },
     {
