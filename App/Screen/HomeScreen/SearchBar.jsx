@@ -8,7 +8,6 @@ export default function SearchBar({ searchedLocation }) {
 
   const handleInputChange = (text) => {
     setInput(text);
-    // Call the searchedLocation function with the updated input
     searchedLocation(text);
   };
 

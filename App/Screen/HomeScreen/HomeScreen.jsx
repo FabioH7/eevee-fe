@@ -19,7 +19,7 @@ export default function HomeScreen() {
   }
 
   useEffect(()=>{
-    setPlaceList(GetNearByPlace(""));
+    setPlaceList(GetNearByPlace(location));
   },[location])
 
   /**
@@ -33,8 +33,11 @@ export default function HomeScreen() {
         <Header />
         <SearchBar 
           onSearch={GetNearByPlace}
-          searchedLocation={(location) => 
-          GetNearByPlace(location)} 
+          searchedLocation={(location) => {
+            setLocation(location)
+            GetNearByPlace(location) 
+          }
+        }
           />
       </View>
       {!placeList?<ActivityIndicator size={'large'}/>

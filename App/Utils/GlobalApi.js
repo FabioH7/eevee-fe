@@ -54,7 +54,9 @@ const places = [
             "totalChargers": "10",
             "occupiedChargers": "5",
             "randomOption": "DC Fast Charging (DCFC)",
-            "group_id": "3"
+            "group_id": "3",
+            "lowest_price": "0.6$",
+            "lowest_price_time": "Noon"
         },
         {
             "id": 2,
@@ -92,6 +94,8 @@ const places = [
             "occupiedChargers": "5",
             "randomOption": "Tesla Superchargers",
             "group_id": "3",
+            "lowest_price": "0.4$",
+            "lowest_price_time": "Morning"
         },
         {
             "id": 3,
@@ -128,7 +132,9 @@ const places = [
             "totalChargers": "7",
             "occupiedChargers": "3",
             "randomOption": "Tesla Superchargers",
-            "group_id": "2"
+            "group_id": "2",
+            "lowest_price": "0.7$",
+            "lowest_price_time": "Evening"
         },
         {
             "id": 4,
@@ -165,7 +171,9 @@ const places = [
             "totalChargers": "5",
             "occupiedChargers": "2",
             "randomOption": "Level 1 Charging",
-            "group_id": "3"
+            "group_id": "3",
+            "lowest_price": "0.5$",
+            "lowest_price_time": "Noon"
         },
         {
             "id": 12,
@@ -202,7 +210,9 @@ const places = [
             "totalChargers": "8",
             "occupiedChargers": "6",
             "randomOption": "Wireless Charging",
-            "group_id": "1"
+            "group_id": "1",
+            "lowest_price": "0.5$",
+            "lowest_price_time": "Morning"
         },
        
     ]
@@ -236,7 +246,7 @@ const groups = [
 ]
 
 
-const NewNearByPlace= (data) => places.filter((item)=> item.city.includes(data) || item.address.includes(data) || item.name.includes(data));
+const NewNearByPlace= (data) => places.filter((item)=> item.city.includes(data));
 
 export default{
     NewNearByPlace,

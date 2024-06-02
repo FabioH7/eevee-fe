@@ -23,7 +23,7 @@ export default function PlaceItem({ place, isFav, markedFav }) {
     }
     );
     markedFav()
-    ToastAndroid.show('Fav Added!', ToastAndroid.TOP);
+
   }
 
   /**
@@ -33,7 +33,6 @@ export default function PlaceItem({ place, isFav, markedFav }) {
   const onRemoveFav=async(placeId)=>{
     console.log(placeId)
      await deleteDoc(doc(db, "ev-fav-place", placeId.toString()));
-     ToastAndroid.show('Fav Removed!', ToastAndroid.TOP);
      markedFav()
   }
 
@@ -94,10 +93,15 @@ export default function PlaceItem({ place, isFav, markedFav }) {
             fontSize: 23,
             fontFamily: 'outfit-medium'
           }}>{place.name}</Text>
+          <View style={{ display: 'flex'}}>
           <Text style={{
             color: Colors.GRAY,
             fontFamily: 'outfit'
-          }}>{place?.shortFormattedAddress}</Text>
+          }}>{place?.address}</Text>
+          <Text style={{
+            fontFamily: 'outfit'
+          }}>Lowest price: {place?.lowest_price} at {place?.lowest_price_time}</Text>
+          </View>
           <View style={{
             display: 'flex', flexDirection: 'row',
             alignItems: 'center', justifyContent: 'space-between', marginTop: 15

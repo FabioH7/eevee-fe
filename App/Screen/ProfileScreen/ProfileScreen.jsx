@@ -14,11 +14,6 @@ export default function ProfileScreen() {
     },
     {
       id:2,
-      name:'Maintanance',
-      icon:'ios-file-tray-full-outline'
-    },
-    {
-      id:3,
       name:'Logout',
       icon:'exit-outline'
     }
@@ -68,9 +63,7 @@ export default function ProfileScreen() {
         onPress={()=>
           item.id==1?
           navigation.navigate('favorite')
-          :item.id==3?signOut()
-          :Linking.openURL('https://tubeguruji-courses.vercel.app/')
-
+          :signOut()
         }
         style={{
           display:'flex',
