@@ -249,7 +249,7 @@ const places = [
         "code": 15,
         "name": "Durres Charging Station",
         "address": "Albania, St.8",
-        "city": "Vlora",
+        "city": "Tiran",
         "country": "Albania",
         "latitude": 40.45576936891378,
         "longitude": 19.486655463445423,
@@ -258,7 +258,71 @@ const places = [
             "connectorCount": 3,
             "options": ["Type2", "Type3"]
         }
-    }
+    },
+    {
+        "id": 16,
+        "url": "https://media.istockphoto.com/id/962134794/photo/electric-charging-station-in-estonia.jpg?s=612x612&w=0&k=20&c=fxGfSD5IqhX5EFhDNVVo8Eb_vgEqbWj_hZruTtn1eEc=",
+        "code": 16,
+        "name": "Tirana Charging Station 1",
+        "address": "Albania, St.50",
+        "city": "Tirana",
+        "country": "Albania",
+        "latitude": 41.3275,
+        "longitude": 19.8189,
+        "shortFormattedAddress": "St.50, Tirana, Albania",
+        "evChargeOptions": {
+            "connectorCount": 3,
+            "options": ["Type1", "Type2"]
+        }
+    },
+    {
+        "id": 17,
+        "url": "https://media.istockphoto.com/id/912838122/photo/electric-vehicle-charging-station.jpg?s=612x612&w=0&k=20&c=4zbW9_1B2QpVCcOUmFnkCVtgm7fWJoeevbThnEMmGzY=",
+        "code": 17,
+        "name": "Tirana Charging Station 2",
+        "address": "Albania, St.65",
+        "city": "Tirana",
+        "country": "Albania",
+        "latitude": 41.3302,
+        "longitude": 19.7915,
+        "shortFormattedAddress": "St.65, Tirana, Albania",
+        "evChargeOptions": {
+            "connectorCount": 4,
+            "options": ["Type2", "Fast Charging"]
+        }
+    },
+    {
+        "id": 18,
+        "url": "https://media.istockphoto.com/id/1000877980/photo/electric-car-in-charging-station-new-technology-new-innovation-future-energy.jpg?s=612x612&w=0&k=20&c=l7mdsdLGRd9qWDRXZkP-eGsHyHc3lRTPQkUzwUCx3Ds=",
+        "code": 18,
+        "name": "Tirana Charging Station 3",
+        "address": "Albania, St.80",
+        "city": "Tirana",
+        "country": "Albania",
+        "latitude": 41.3381,
+        "longitude": 19.8204,
+        "shortFormattedAddress": "St.80, Tirana, Albania",
+        "evChargeOptions": {
+            "connectorCount": 2,
+            "options": ["Type1", "Type2"]
+        }
+    },
+    {
+        "id": 19,
+        "url": "https://media.istockphoto.com/id/1060580382/photo/electro-car-charging-station.jpg?s=2048x2048&w=is&k=20&c=bEt8lfnCrAOrpMJFK1p6W2uqXHq9dyU2mxZB3MHYFqU=",
+        "code": 19,
+        "name": "Tirana Charging Station 4",
+        "address": "Albania, St.100",
+        "city": "Tirana",
+        "country": "Albania",
+        "latitude": 41.3231,
+        "longitude": 19.8208,
+        "shortFormattedAddress": "St.100, Tirana, Albania",
+        "evChargeOptions": {
+            "connectorCount": 5,
+            "options": ["Type2", "Fast Charging", "Type3"]
+        }
+    },
 
 ]
 
