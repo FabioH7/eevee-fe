@@ -80,13 +80,7 @@ export default function PlaceItem({ place, isFav, markedFav }) {
           <Ionicons name="heart-sharp" size={30}
             color="red" />
         </Pressable>}
-        <Image source={
-          place?.photos ?
-            {
-              uri: PLACE_PHOTO_BASE_URL + place?.photos[0]?.name +
-                "/media?key=" + GlobalApi?.API_KEY + "&maxHeightPx=800&maxWidthPx=1200"
-            }
-            : require('./../../../assets/images/ev-charging.png')}
+        <Image source={place.url}
           style={{
             width: '100%', borderRadius: 10,
             height: 140, zIndex: -1
@@ -96,7 +90,7 @@ export default function PlaceItem({ place, isFav, markedFav }) {
           <Text numberOfLines={1} style={{
             fontSize: 23,
             fontFamily: 'outfit-medium'
-          }}>{place.displayName?.text}</Text>
+          }}>{place.name}</Text>
           <Text style={{
             color: Colors.GRAY,
             fontFamily: 'outfit'
