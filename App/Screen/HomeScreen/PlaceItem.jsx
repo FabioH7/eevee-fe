@@ -103,19 +103,23 @@ export default function PlaceItem({ place, isFav, markedFav }) {
             alignItems: 'center', justifyContent: 'space-between', marginTop: 15
           }}>
             <View style={{
-
-
             }}>
-              <Text style={{
-                fontFamily: 'outfit',
-                color: Colors.GRAY,
-                fontSize: 17
-              }}>Connectors</Text>
+              <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1, width: 150, justifyContent: 'space-between'}}>
               <Text style={{
                 fontFamily: 'outfit-medium',
                 fontSize: 20,
                 marginTop: 2
-              }}>{place?.evChargeOptions?.connectorCount} Points</Text>
+              }}>{place?.totalChargers}  Available</Text>
+              <Image source={require("../../../assets/images/battery-bolt.png")} style={{width:20,height:20}}/>
+              </View>
+              <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 1, width: 150, justifyContent: 'space-between'}}>
+              <Text style={{
+                fontFamily: 'outfit-medium',
+                fontSize: 20,
+                marginTop: 2
+              }}>{place?.occupiedChargers} Occupied</Text>
+              <Image source={require("../../../assets/images/occupied.png")} style={{width:20,height:20}}/>
+              </View>
             </View>
             <Pressable 
             onPress={()=>onDirectionClick()}

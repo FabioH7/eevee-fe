@@ -5,11 +5,14 @@ import { TouchableOpacity } from 'react-native'
 import * as WebBrowser from "expo-web-browser";
 import { useWarmUpBrowser } from '../../../hooks/warmUpBrowser';
 import { useOAuth } from '@clerk/clerk-expo';
+import { useState } from 'react';
+import LoginForm from './MaintananceLogin';
 
 
 WebBrowser.maybeCompleteAuthSession();
 export default function LoginScreen() {
     useWarmUpBrowser();
+    const [isMaintananceLogin,setIsMaintananceLogin]=useState(false);
  
   const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
  
@@ -27,12 +30,18 @@ export default function LoginScreen() {
         console.error("OAuth error", err);
       }
   }
+
+  const onLoginPress=()=>{
+    setIsMaintananceLogin(true);
+  }
+
   return (
     <View style={{
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-        marginTop:80
+        marginTop:20,
+        height:'100%'
     }}>
         <Image source={require('./../../../assets/images/logo.png')}
             style={styles.logoImage}
@@ -40,9 +49,13 @@ export default function LoginScreen() {
         <Image source={require('./../../../assets/images/ev-charging.png')}
             style={styles.bgImage}
         />
+            {!isMaintananceLogin ?
         <View style={{padding:20}}>
+
             <Text style={styles.heading}>Your Ultimate EV charging Station Finder App</Text>
             <Text style={styles.desc}>Find EV charging station near you, plan trip and so much more in just one click</Text>
+            <View style={{marginTop:20}}>
+
             <TouchableOpacity style={styles.button}
             onPress={onPress}
             >
@@ -53,7 +66,19 @@ export default function LoginScreen() {
                     fontSize:17
                 }}>Login With Google</Text>
             </TouchableOpacity>
-        </View>
+            <TouchableOpacity style={styles.button}
+            onPress={onLoginPress}
+            >
+                <Text style={{
+                    color:Colors.WHITE,
+                    textAlign:'center',
+                    fontFamily:'outfit',
+                    fontSize:17
+                }}>Maintanance Login</Text>
+            </TouchableOpacity>
+                </View>
+        </View> : <LoginForm/>
+}
     </View>
   )
 }
@@ -89,6 +114,6 @@ const styles = StyleSheet.create({
         padding:16,
         display:'flex',
         borderRadius:99,
-        marginTop:70
+        marginTop:20
     }
 })
