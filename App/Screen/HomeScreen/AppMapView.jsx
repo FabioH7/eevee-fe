@@ -44,7 +44,8 @@ export default function AppMapView({placeList}) {
           {placeList&&placeList.map((item,index)=>(
             <Markers key={index}
             index={index}
-            place={item}/>
+            place={item}
+            />
           ))}
         </MapView>
     </View>

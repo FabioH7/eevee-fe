@@ -10,7 +10,6 @@ import { app } from '../../Utils/FirebaseConfig';
 import { doc, setDoc,deleteDoc  } from "firebase/firestore";
 import { useUser } from '@clerk/clerk-expo';
 export default function PlaceItem({ place, isFav, markedFav }) {
-  const PLACE_PHOTO_BASE_URL = "https://places.googleapis.com/v1/";
   const { user } = useUser();
   const db = getFirestore(app);
   /**
@@ -41,14 +40,18 @@ export default function PlaceItem({ place, isFav, markedFav }) {
   /**
    * On Direction Click Navigate to Google Map/Apple Map
    */
-  const onDirectionClick=()=>{
-    const url=Platform.select({
-      ios:"maps:"+place.latitude+","+place?.longitude,
-      android:"geo:"+place.latitude+","+place?.longitude,
+  const onDirectionClick = () => {
+    const url = Platform.select({
+      ios: `http://maps.apple.com/?ll=${place.latitude},${place.longitude}&q=${place.latitude},${place.longitude}`,
+      android: `geo:${place.latitude},${place.longitude}?q=${place.latitude},${place.longitude}`,
     });
-
-    Linking.openURL(url);
-  }
+  
+    if (url) {
+      Linking.openURL(url).catch((err) => console.error('An error occurred', err));
+    } else {
+      console.error('Platform not supported');
+    }
+  };
   return (
     <View
       style={{
@@ -80,7 +83,7 @@ export default function PlaceItem({ place, isFav, markedFav }) {
           <Ionicons name="heart-sharp" size={30}
             color="red" />
         </Pressable>}
-        <Image source={place.url}
+        <Image source={{uri: place.url}}
           style={{
             width: '100%', borderRadius: 10,
             height: 140, zIndex: -1

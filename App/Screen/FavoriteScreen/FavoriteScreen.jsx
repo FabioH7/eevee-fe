@@ -55,7 +55,7 @@ export default function FavoriteScreen() {
         refreshing={loading}
         style={{ paddingBottom: 200 }}
         renderItem={({ item, index }) => (
-          <PlaceItem place={item.place} isFav={true}
+          <PlaceItem place={item.place} key={index} isFav={true}
             markedFav={() => getFav()} />
         )}
       />
